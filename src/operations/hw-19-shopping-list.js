@@ -19,7 +19,7 @@ class ShoppingList {
   }
 
   addItem(itemConfig) {
-    if (this.items.length > this.maxAmount) {
+    if (this.items.length >= this.maxAmount) {
       throw new Error(`Превысили допустимое количество.`);
     }
     if (!itemConfig.title) {
@@ -70,7 +70,7 @@ function errorMarkup(error) {
 const newShoppingList = {
   listName: "Список покупок",
   author: "Ната",
-  maxAmount: "4",
+  maxAmount: "5",
   items: [
     { title: "Морковь", amount: 500, measurment: "гр" },
     { title: "Кефир", amount: 1, measurment: "л" },
