@@ -10,9 +10,9 @@ class ShoppingListItem {
 }
 
 class ShoppingList {
-  constructor(title, author, maxAmount) {
+  constructor(listName, author, maxAmount) {
     this.id = uuidv4();
-    this.title = title;
+    this.listName = listName;
     this.author = author;
     this.maxAmount = maxAmount;
     this.items = [];
@@ -71,7 +71,7 @@ function errorMarkup(error) {
 }
 
 const newShoppingList = {
-  name: "Список покупок",
+  listName: "Список покупок",
   author: "Ната",
   maxAmount: 4,
   items: [
