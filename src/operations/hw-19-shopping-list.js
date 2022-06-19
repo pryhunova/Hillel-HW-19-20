@@ -22,15 +22,12 @@ class ShoppingList {
     if (this.items.length > this.maxAmount) {
       throw new Error(`Превысили допустимое количество.`);
     }
-
     if (!itemConfig.title) {
       throw new Error(`Заполните название продукта.`);
     }
-
     if (!itemConfig.amount) {
       throw new Error(`Заполните количество в продукте ${itemConfig.title}`);
     }
-
     if (!itemConfig.measurment) {
       throw new Error(
         `Укажите единицу измерения в продукте ${itemConfig.title}`
@@ -73,7 +70,7 @@ function errorMarkup(error) {
 const newShoppingList = {
   listName: "Список покупок",
   author: "Ната",
-  maxAmount: 4,
+  maxAmount: "4",
   items: [
     { title: "Морковь", amount: 500, measurment: "гр" },
     { title: "Кефир", amount: 1, measurment: "л" },
@@ -87,11 +84,11 @@ const newShoppingList = {
 
 console.log(newShoppingList);
 
-function test(newShoppingList) {
+function makeNewShoppingList(newShoppingList) {
   let testList;
   try {
     testList = new ShoppingList(
-      newShoppingList.name,
+      newShoppingList.listName,
       newShoppingList.author,
       newShoppingList.maxAmount
     );
@@ -109,4 +106,4 @@ function test(newShoppingList) {
   }
 }
 
-test(newShoppingList);
+makeNewShoppingList(newShoppingList);
