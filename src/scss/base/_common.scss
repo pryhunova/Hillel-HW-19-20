@@ -1,0 +1,21 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-family;
+  background-color: $background-color;
+  color: $dark-title-color;
+}
+
+img {
+  width: 100%;
+  display: block;
+  height: auto;
+}
