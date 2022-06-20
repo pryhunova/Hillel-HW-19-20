@@ -51,6 +51,16 @@ class ShoppingList {
 
     this.items = this.items.filter((elem) => elem.id !== id);
   }
+
+  [Symbol.iterator]() {
+    let count = 0;
+    return {
+      next: () => {
+        let value = this.items[count++];
+        return { value, done: !value };
+      },
+    };
+  }
 }
 
 function shoppingListMarkup(item) {
@@ -82,8 +92,6 @@ const newShoppingList = {
   ],
 };
 
-console.log(newShoppingList);
-
 function makeNewShoppingList(newShoppingList) {
   let testList;
   try {
@@ -104,9 +112,18 @@ function makeNewShoppingList(newShoppingList) {
       errorMarkup(error);
     }
   }
-  for (let item of Object.values(newShoppingList)) {
+}
+
+function iterationShoppingList() {
+  let list = new ShoppingList("Список покупок 2", "я", 4);
+  list.addItem({ title: "Яйца", amount: 10, measurment: "шт" });
+  list.addItem({ title: "Молоко", amount: 1, measurment: "л" });
+  list.addItem({ title: "Кефир", amount: 1, measurment: "л" });
+
+  for (const item of list) {
     console.log(item);
   }
 }
 
 makeNewShoppingList(newShoppingList);
+iterationShoppingList();
