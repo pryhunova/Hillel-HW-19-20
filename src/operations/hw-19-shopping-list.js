@@ -104,6 +104,9 @@ function makeNewShoppingList(newShoppingList) {
       errorMarkup(error);
     }
   }
+  for (let item of Object.values(newShoppingList)) {
+    console.log(item);
+  }
 }
 
 makeNewShoppingList(newShoppingList);
