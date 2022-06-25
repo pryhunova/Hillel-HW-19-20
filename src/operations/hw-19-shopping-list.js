@@ -49,7 +49,7 @@ class ShoppingList {
       throw new Error(`Товар ${title} не найден`);
     }
 
-    this.items = this.items.filter((elem) => elem.id !== id);
+    this.items = this.items.filter((elem) => elem.title !== title);
   }
 
   [Symbol.iterator]() {
